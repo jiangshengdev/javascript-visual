@@ -27,20 +27,24 @@
 
 // Constants.
 
+// Set actual size in memory (scaled to account for extra pixel density).
+var scale = window.devicePixelRatio; // Change to 1 on retina screens to see blurry canvas.
+
+
 BST.LINK_COLOR = "#007700";
 BST.HIGHLIGHT_CIRCLE_COLOR = "#007700";
 BST.FOREGROUND_COLOR = "#007700";
 BST.BACKGROUND_COLOR = "#EEFFEE";
 BST.PRINT_COLOR = BST.FOREGROUND_COLOR;
 
-BST.WIDTH_DELTA  = 50;
-BST.HEIGHT_DELTA = 50;
-BST.STARTING_Y = 50;
+BST.WIDTH_DELTA  = 50 * scale;
+BST.HEIGHT_DELTA = 50 * scale;
+BST.STARTING_Y = 50 * scale;
 
 
-BST.FIRST_PRINT_POS_X  = 50;
-BST.PRINT_VERTICAL_GAP  = 20;
-BST.PRINT_HORIZONTAL_GAP = 50;
+BST.FIRST_PRINT_POS_X  = 50 * scale;
+BST.PRINT_VERTICAL_GAP  = 20 * scale;
+BST.PRINT_HORIZONTAL_GAP = 50 * scale;
 
 
 

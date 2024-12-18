@@ -10,7 +10,10 @@ body {
 	color: #000000;
 }
 
-
+#canvas {
+	width: 1000px;
+	height: 500px;
+}
 
 
 .VisualizationMainPage #mainContent {

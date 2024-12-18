@@ -24,12 +24,15 @@
 // authors and should not be interpreted as representing official policies, either expressed
 // or implied, of the University of San Francisco
 
+// Set actual size in memory (scaled to account for extra pixel density).
+var scale = window.devicePixelRatio; // Change to 1 on retina screens to see blurry canvas.
+
 
 var AnimatedCircle = function(objectID, objectLabel)
 {
 	this.objectID = objectID;
 	this.label = objectLabel;
-	this.radius = 20;
+	this.radius = 20 * scale;
 	this.thickness = 3;
 	this.x = 0;
 	this.y = 0;
@@ -100,16 +103,17 @@ AnimatedCircle.prototype.draw = function(ctx)
 	
 	ctx.fillStyle = this.backgroundColor;
 	ctx.strokeStyle = this.foregroundColor;
-	ctx.lineWidth = 1;
+	ctx.lineWidth = 1 * scale;
 	ctx.beginPath();
 	ctx.arc(this.x,this.y,this.radius,0,Math.PI*2, true);
 	ctx.closePath();
 	ctx.fill();
 	ctx.stroke();
 	ctx.textAlign = 'center';
-	ctx.font         = '10px sans-serif';
+	let fontSize = 10 * scale;
+	ctx.font         = `${fontSize}px sans-serif`;
 	ctx.textBaseline   = 'middle'; 
-	ctx.lineWidth = 1;
+	ctx.lineWidth = 1 * scale;
 	ctx.fillStyle = this.foregroundColor;
 	
 	var strList = this.label.split("\n");

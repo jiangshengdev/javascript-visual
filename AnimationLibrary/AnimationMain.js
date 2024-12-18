@@ -26,6 +26,10 @@
 
 // Global timer used for doing animation callbacks.
 //  TODO:  Make this an instance variable of Animation Manager.
+
+// Set actual size in memory (scaled to account for extra pixel density).
+var scale = window.devicePixelRatio; // Change to 1 on retina screens to see blurry canvas.
+
 var timer;
 var swapped = false;
 
@@ -804,7 +808,7 @@ function AnimationManager(objectManager)
 				}
 				else
 				{
-					this.animatedObjects.addHighlightCircleObject(parseInt(nextCommand[1]), this.parseColor(nextCommand[2]), 20);						
+					this.animatedObjects.addHighlightCircleObject(parseInt(nextCommand[1]), this.parseColor(nextCommand[2]), 20 * scale);
 				}
 				if (nextCommand.length > 4)
 				{

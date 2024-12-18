@@ -28,6 +28,9 @@
 // This class is somewhat poorly named -- it handles links between vertices in graphs,
 //  pointers in linked lists, and so on. 
 
+// Set actual size in memory (scaled to account for extra pixel density).
+var scale = window.devicePixelRatio; // Change to 1 on retina screens to see blurry canvas.
+
 
 var LINE_maxHeightDiff = 5;
 var LINE_minHeightDiff = 3;
@@ -149,7 +152,8 @@ function Line(n1, n2, color, cv, d, weight, anchorIndex)
 
 
 		context.textAlign = 'center';
-		context.font         = '10px sans-serif';
+		let fontSize = 10 * scale;
+		context.font         = `${fontSize}px sans-serif`;
 		context.textBaseline   = 'middle'; 
 		context.fillText(this.edgeLabel, labelPosX, labelPosY);
 
@@ -189,7 +193,7 @@ function Line(n1, n2, color, cv, d, weight, anchorIndex)
 
 			if (this.highlighted)
 				this.drawArrow(this.highlightDiff, "#FF0000", ctx);
-			this.drawArrow(1, this.edgeColor, ctx);
+			this.drawArrow(1 * scale, this.edgeColor, ctx);
 	   }
 	   
 	   

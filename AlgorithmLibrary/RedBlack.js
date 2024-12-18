@@ -24,6 +24,11 @@
 // authors and should not be interpreted as representing official policies, either expressed
 // or implied, of the University of San Francisco
 
+
+// Set actual size in memory (scaled to account for extra pixel density).
+var scale = window.devicePixelRatio; // Change to 1 on retina screens to see blurry canvas.
+
+
 function RedBlack(am, w, h)
 {
 	this.init(am, w, h);
@@ -83,9 +88,9 @@ RedBlack.prototype.reset = function()
 	this.treeRoot = null;
 }
 
-var FIRST_PRINT_POS_X = 50;
-var PRINT_VERTICAL_GAP = 20;
-var PRINT_HORIZONTAL_GAP = 50;
+var FIRST_PRINT_POS_X = 50 * scale;
+var PRINT_VERTICAL_GAP = 20 * scale;
+var PRINT_HORIZONTAL_GAP = 50 * scale;
 
 
 var FOREGROUND_RED = "#AA0000";
@@ -111,16 +116,16 @@ var HIGHLIGHT_COLOR = "#007700";
 var FOREGROUND_COLOR = FOREGROUND_BLACK;
 var PRINT_COLOR = FOREGROUND_COLOR
 
-var widthDelta  = 50;
-var heightDelta = 50;
-var startingY = 50;
+var widthDelta  = 50 * scale;
+var heightDelta = 50 * scale;
+var startingY = 50 * scale;
 
 
-var FIRST_PRINT_POS_X  = 40;
-var PRINT_VERTICAL_GAP  = 20;
-var PRINT_HORIZONTAL_GAP = 50;
-var EXPLANITORY_TEXT_X = 10;
-var EXPLANITORY_TEXT_Y = 10;
+var FIRST_PRINT_POS_X  = 40 * scale;
+var PRINT_VERTICAL_GAP  = 20 * scale;
+var PRINT_HORIZONTAL_GAP = 50 * scale;
+var EXPLANITORY_TEXT_X = 10 * scale;
+var EXPLANITORY_TEXT_Y = 10 * scale;
 
 RedBlack.prototype.insertCallback = function(event)
 {

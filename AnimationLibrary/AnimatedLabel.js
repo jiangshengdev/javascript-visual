@@ -24,6 +24,9 @@
 // authors and should not be interpreted as representing official policies, either expressed
 // or implied, of the University of San Francisco
 
+// Set actual size in memory (scaled to account for extra pixel density).
+var scale = window.devicePixelRatio; // Change to 1 on retina screens to see blurry canvas.
+
 function AnimatedLabel(id, val, center, initialWidth)
 {
 	this.centering = center;
@@ -64,7 +67,8 @@ AnimatedLabel.prototype.draw = function(ctx)
 	}
 	
 	ctx.globalAlpha = this.alpha;
-	ctx.font = '10px sans-serif';
+	let fontSize = 10 * scale;
+	ctx.font = `${fontSize}px sans-serif`;
 
         var startingXForHighlight = this.x; 
 
